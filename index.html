@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict //EN">
+<html>
+    <head>
+        <title>Simple Memo</title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css" type="text/css">
+    </head>
+    <body>
+        <!-- コンテナ全体 -->
+        <div id="container">
+            <!-- ヘッダー -->
+            <div class="header">
+                SimpleMemo
+            </div>
+            <!-- 左コンテナ -->
+            <div class="left_container">
+	              <div id="memo_input_title">
+	                  メモ新規
+	              </div>
+	              <div id="memo_input_container">
+	                  <textarea></textarea>
+	              </div>
+                <div id="memo_input_button">
+	                  <button>新規</button>
+                </div>
+            </div>
+            <!-- 右コンテナ -->
+            <div class="right_container">
+                <!-- メモエントリ -->
+                <div class="memo_entry">
+                    <!-- メモ -->
+                    <div class="memo">
+                        メモ１
+                    </div>
+                    <!-- メモボタン -->
+                    <div class="memo_btns">
+                        <a href="javascript:void(0)" onClick="#">
+                            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0)" onClick="#">
+                            <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

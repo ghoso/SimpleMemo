@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+/* --- 全体の背景・テキスト --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* 全体の背景色 */
+    color: #000000; /* 全体の文字色 */
+    font-size: 80%; /* 全体の文字サイズ */
+}
+
+/* --- 全体のリンクテキスト --- */
+a:link { color: #0000ff; }
+a:visited { color: #000090; }
+a:hover { color: #ff8000; }
+a:active { color: #ff0000; }
+
+/* -- ヘッダ -- */
+.header {
+    width: 880px;
+    height: 20px;
+    padding: 5px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+/* --- コンテナ --- */
+#container {
+    width: 890px; /* コンテナの幅 */
+    height: 530px; /* コンテナの高さ */
+    margin: 20px auto;
+    background-color: #cccccc; /* コンテナの背景色 */
+    border-left: 1px #c0c0c0 solid; /* コンテナの左境界線 */
+    border-right: 1px #c0c0c0 solid; /* コンテナの右境界線 */
+}
+
+/* --- 左コンテナ --- */
+.left_container {
+    float: left;
+    width: 390px;
+}
+
+#memo_input_container {
+    background-color: #ffffff;
+    width: 370px;
+    margin: 5px;
+}
+
+#memo_input_title {
+    margin: 5px;
+}
+
+#memo_input_container textarea {
+    width: 370px;
+    height: 9em;
+    float: left;
+    resize: none;
+}
+
+#memo_input_button {
+    width: 370px;
+    height: 20px;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/*  --- 右コンテナ --- */
+.right_container {
+    width: 495px;
+    height: 500px;
+    float: left;
+    overflow: scroll;
+}
+
+.memo_entry {
+    width: 485px;
+    height: 180px;
+    border: 1px black solid;
+    background-color: #ffffff;
+}
+
+.memo_entry .memo {
+    width: 430px;
+    height: 170px;
+    float: left;
+    padding: 5px;
+}
+
+.memo_entry .memo_btns {
+    width: 40px;
+    height: 180px;
+    float: right;
+    text-align: center;
+}
+
+.memo_entry .memo_btns i {
+    margin-top: 10px;
+}
