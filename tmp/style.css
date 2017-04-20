@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* --- 全体の背景・テキスト --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* 全体の背景色 */
+    color: #000000; /* 全体の文字色 */
+    font-size: 80%; /* 全体の文字サイズ */
+}
+
