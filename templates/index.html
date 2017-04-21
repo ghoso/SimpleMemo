@@ -17,12 +17,14 @@
 	              <div id="memo_input_title">
 	                  メモ新規
 	              </div>
-	              <div id="memo_input_container">
-	                  <textarea></textarea>
-	              </div>
-                <div id="memo_input_button">
-	                  <button>新規</button>
-                </div>
+                  <form action="/new" method="post">
+	                  <div id="memo_input_container">
+	                      <textarea name="memo"></textarea>
+	                  </div>
+                      <div id="memo_input_button">
+	                      <button type="submit">新規</button>
+                      </div>
+                  </form>
             </div>
             <!-- 右コンテナ -->
             <div class="right_container">
