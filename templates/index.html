@@ -28,11 +28,12 @@
             </div>
             <!-- 右コンテナ -->
             <div class="right_container">
+                {% for row in rows %}
                 <!-- メモエントリ -->
                 <div class="memo_entry">
                     <!-- メモ -->
                     <div class="memo">
-                        メモ１
+                        {{row["text"]}}
                     </div>
                     <!-- メモボタン -->
                     <div class="memo_btns">
@@ -44,6 +45,7 @@
                         </a>
                     </div>
                 </div>
+               {% endfor %}
             </div>
         </div>
     </body>

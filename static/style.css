@@ -87,6 +87,7 @@ a:active { color: #ff0000; }
     display: -o-flex;
     display: flex;
     overflow: scroll;
+    flex-direction: column;
 }
 
 .memo_entry {
