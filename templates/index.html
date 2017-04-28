@@ -54,9 +54,12 @@
                         <a href="javascript:void(0)" onClick="show_edit_dialog({{row['id']}})">
                             <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0)" onClick="show_delete_alert({{row['id']}})">
-                            <i class="fa fa-times fa-2x" aria-hidden="true"></i>
-                        </a>
+                        <form action="/delete" id="delete_form_{{row['id']}}" method="POST">
+                            <input type="hidden" name="memo_id" id="memo_{{row['id']}}_id" />
+                            <a href="javascript:void(0)" onClick="show_delete_alert({{row['id']}})">
+                                <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </form>
                     </div>
                 </div>
                {% endfor %}

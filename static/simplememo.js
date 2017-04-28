@@ -24,5 +24,11 @@ function show_edit_dialog(id){
 }
 
 function show_delete_alert(id){
-    
+    var form = document.getElementById('delete_form_' + id);
+    var memo_id = document.getElementById('memo_' + id + '_id');
+    if(window.confirm("メモを削除してよろしいですか？")){
+        memo_id.value = id;
+        form.submit();
+    }
+    return false;
 }

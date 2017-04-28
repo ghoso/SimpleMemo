@@ -74,6 +74,14 @@ def edit_memo():
 # データ削除処理
 @app.route('/delete',methods=['POST'])
 def delete_memo():
+    if request.method == 'POST':
+        memo_id = request.form['memo_id']
+        cur = g.db.cursor()
+        try:
+            cur.execute("DELETE FROM memos where id=?",(memo_id))
+            g.db.commit()
+        except:
+            cur.rollback()
     rows = get_list()
     return render_template('index.html',rows = rows)
 
