@@ -2,10 +2,24 @@
 <html>
     <head>
         <title>Simple Memo</title>
+        <script type=text/javascript src="{{url_for('static', filename='jquery-3.2.1.min.js') }}"></script>
+        <script type=text/javascript src="{{url_for('static', filename='simplememo.js') }}"></script>
         <link rel="stylesheet" href="../static/style.css" type="text/css">
         <link rel="stylesheet" href="../static/font-awesome-4.7.0/css/font-awesome.css" type="text/css">
     </head>
     <body>
+        <!-- 編集ダイアログ -->
+        <dialog id="edit_dialog" title="編集">
+            <form id="edit_form" action="/edit" method="post">
+                <input type="hidden" id="edit_id" name="id" />
+                <textarea id="edit_textarea" name="memo"></textarea>
+                <div id="button_area">
+                    <button id="dialog_edit_button">OK</button>
+                    <button id="dialog_cancel_button">キャンセル</button>
+                </div>
+            </form>
+        </dialog>
+
         <!-- コンテナ全体 -->
         <div id="container">
             <!-- ヘッダー -->
@@ -32,15 +46,15 @@
                 <!-- メモエントリ -->
                 <div class="memo_entry">
                     <!-- メモ -->
-                    <div class="memo">
+                    <div class="memo" id="memo_{{row['id']}}">
                         {{row["text"]}}
                     </div>
                     <!-- メモボタン -->
                     <div class="memo_btns">
-                        <a href="javascript:void(0)" onClick="#">
+                        <a href="javascript:void(0)" onClick="show_edit_dialog({{row['id']}})">
                             <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0)" onClick="#">
+                        <a href="javascript:void(0)" onClick="show_delete_alert({{row['id']}})">
                             <i class="fa fa-times fa-2x" aria-hidden="true"></i>
                         </a>
                     </div>

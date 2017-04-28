@@ -11,6 +11,13 @@ app.config.from_object(__name__)
 def connect_db():
     return sqlite3.connect(app.config['DATABASE'])
 
+# メインページ表示
+def get_list():
+    con = g.db.cursor()
+    cur = con.execute("SELECT * FROM memos")
+    rows = cur.fetchall()
+    return rows
+
 # リクエスト前に行われる処理
 @app.before_request
 def before_request():
@@ -31,9 +38,7 @@ def teardown_request(exception):
 # indexページ表示
 @app.route('/')
 def index():
-    con = g.db.cursor()
-    cur = con.execute("select * from memos")
-    rows = cur.fetchall()
+    rows = get_list()
     return render_template('index.html',rows = rows)
 
 # データ登録処理
@@ -48,22 +53,29 @@ def create_memo():
             g.db.commit()
         except:
             cur.rollback()
-        finally:
-            recs = cur.execute("SELECT * FROM memos")
-            rows = recs.fetchall()
-            return render_template('index.html',rows = rows)
-    else:
-        return redirect(url_for('index'))
+    rows = get_list()
+    return render_template('index.html',rows = rows)
 
 # データ更新処理
 @app.route('/edit',methods=['POST'])
 def edit_memo():
-    None
+    if request.method == 'POST':
+        try:
+            memo = request.form['memo']
+            memo_id = request.form['id']
+            cur = g.db.cursor()
+            cur.execute("UPDATE memos SET text=? where id=?",(memo,memo_id))
+            g.db.commit()
+        except:
+            cur.rollback()
+    rows = get_list()
+    return render_template('index.html',rows = rows)
 
 # データ削除処理
 @app.route('/delete',methods=['POST'])
 def delete_memo():
-    None
+    rows = get_list()
+    return render_template('index.html',rows = rows)
 
 if __name__ == '__main__':
     app.debug = True

@@ -125,3 +125,16 @@ a:active { color: #ff0000; }
 .memo_entry .memo_btns i {
     margin-top: 10px;
 }
+
+/* -- ダイアログ -- */
+
+#edit_dialog {
+    width: 300px;
+    height: 150px;
+}
+
+#edit_textarea {
+    width: 280px;
+    height: 10em;
+    resize: none;
+}
