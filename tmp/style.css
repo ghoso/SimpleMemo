@@ -8,3 +8,8 @@ body {
     font-size: 80%; /* 全体の文字サイズ */
 }
 
+div {
+  width: 100px;
+  height: 100px;
+  border: 5px red solid;
+}
